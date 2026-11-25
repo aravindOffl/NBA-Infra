@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NBA Infrastructure Management Portal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top App Navigation Bar -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand-wrapper">
+        <div class="brand-badge">
+          <span>🏛️</span> NBA INFRA
+        </div>
+        <div>
+          <h1 class="brand-title">Infrastructure & Venue Planning Portal</h1>
+          <div class="brand-subtitle">NBA Accreditation Readiness & Space Allocation Dashboard</div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link active" data-tab="departments">
+          <span>🏢</span> Departments
+        </a>
+        <a href="institution.html" class="nav-link" data-tab="institution">
+          <span>🏛️</span> Institution Info
+        </a>
+        <a href="consolidated.html" class="nav-link" data-tab="consolidated">
+          <span>📊</span> Consolidated
+        </a>
+        <a href="floorplans.html" class="nav-link" data-tab="floorplans">
+          <span>📐</span> Floor Plans
+          <span class="nav-badge">4</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-container">
+    <!-- Top Global Metrics / Stats Overview -->
+    <section id="globalStats" class="stats-banner" aria-label="Campus Infrastructure Summary"></section>
+
+    <!-- TAB 1: DEPARTMENTS VIEW -->
+    <section id="departmentsView" class="page-view active" aria-label="Department Infrastructure">
+      <div class="dept-layout">
+        <!-- Sidebar Department Selector -->
+        <aside class="dept-sidebar">
+          <div class="sidebar-title">
+            <span>Academic Departments</span>
+            <span class="sidebar-badge">13 Programs</span>
+          </div>
+          <div id="deptList" class="dept-list">
+            <!-- Populated dynamically by app.js -->
+          </div>
+        </aside>
+
+        <!-- Right Department Content Area -->
+        <section id="deptContent" class="dept-content-panel">
+          <!-- Populated dynamically by app.js -->
+        </section>
+      </div>
+    </section>
+
+    <!-- TAB 2: INSTITUTION VIEW -->
+    <section id="institutionView" class="page-view" aria-label="Institution Key Readiness">
+      <!-- Populated dynamically by app.js -->
+    </section>
+
+    <!-- TAB 3: CONSOLIDATED REQUIREMENTS VIEW -->
+    <section id="consolidatedView" class="page-view" aria-label="Consolidated Requirements">
+      <!-- Populated dynamically by app.js -->
+    </section>
+
+    <!-- TAB 4: FLOOR PLANS GALLERY VIEW -->
+    <section id="floorplansView" class="page-view" aria-label="Floor Plans and Blueprints">
+      <!-- Populated dynamically by app.js -->
+    </section>
+  </main>
+
+  <!-- High-Resolution Floor Plan Lightbox Modal -->
+  <div id="blueprintModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span style="font-size: 1.4rem;">📐</span>
+          <div>
+            <h3 id="modalTitle" class="modal-title">Floor Plan</h3>
+            <div id="modalDepartments" class="blueprint-departments" style="margin-top: 2px;"></div>
+          </div>
+        </div>
+        
+        <div class="modal-controls">
+          <button id="zoomOutBtn" class="modal-btn" title="Zoom Out">🔍 -</button>
+          <span id="zoomLevelLabel" style="font-size:0.8rem; font-weight:700; min-width:45px; text-align:center; color:#475569;">100%</span>
+          <button id="zoomInBtn" class="modal-btn" title="Zoom In">🔍 +</button>
+          <button id="zoomResetBtn" class="modal-btn" title="Reset Zoom">Reset</button>
+          <button id="modalCloseBtn" class="modal-close-btn" title="Close Blueprint" aria-label="Close modal">&times;</button>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="Floor Plan Blueprint" class="modal-img">
+      </div>
+
+      <div class="modal-footer">
+        <div id="modalDescription" class="modal-desc"></div>
+        <div>
+          <button class="btn-secondary" onclick="window.print()">🖨️ Print Layout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
